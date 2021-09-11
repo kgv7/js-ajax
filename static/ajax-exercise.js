@@ -4,11 +4,18 @@
 
 function showFortune(evt) {
   // TODO: get the fortune and show it in the #fortune-text div
+  fetch("/fortune")
+  .then((response) => response.text())
+  .then((fortuneText) => {
+    document
+    .querySelector("#fortune-text")
+    .innerText = fortuneText;
+  });
 }
-
+ 
 document
-  .querySelector("#get-fortune-button")
-  .addEventListener("click", showFortune);
+.querySelector("#get-fortune-button")
+.addEventListener("click", showFortune);
 
 // PART 2: SHOW WEATHER
 
